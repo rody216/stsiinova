@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.icon-content {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px; /* Más cerca del ícono */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  font-size: 13px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.icon-content:hover .tooltip {
+  opacity: 1;
+  top: -38px;
+}
+
+.icon-content a {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.icon-content a:hover {
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon-content a i {
+  font-size: 24px;
+  z-index: 1;
+  position: relative;
+}
+
+.icon-content .filled {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  z-index: 0;
+  transition: height 0.3s ease-in-out;
+}
+
+.icon-content:hover .filled {
+  height: 100%;
+}
+
+/* Colores personalizados */
+[data-social="facebook"] .filled,
+[data-social="facebook"] ~ .tooltip {
+  background-color: #1877f2;
+}
+
+
+[data-social="linkedin"] .filled,
+[data-social="linkedin"] ~ .tooltip {
+  background-color: #0077b5;
+}
+
+[data-social="github"] .filled,
+[data-social="github"] ~ .tooltip {
+  background-color: #333;
+}
+
+[data-social="instagram"] .filled,
+[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+[data-social="youtube"] .filled,
+[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000;
+}
+
+[data-social="telegram"] .filled,
+[data-social="telegram"] ~ .tooltip {
+  background-color: #0088cc;
+}
+
+[data-social="whatsapp"] .filled,
+[data-social="whatsapp"] ~ .tooltip {
+  background-color: #25d366;
+}

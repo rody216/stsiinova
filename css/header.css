@@ -1,0 +1,167 @@
+/* Colores base */
+:root {
+  --blue-dark: #2575AC;
+  --blue-light: #E0EDF9;
+}
+
+/* Estilos generales */
+.header-left {
+  background-color: var(--blue-dark);
+  padding: 20px;
+}
+
+/* Centrar el contenido del lado derecho */
+.header-right {
+  background-color: var(--blue-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Logo */
+.img-logo {
+  height: 90px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+.img-logo-small {
+  height: 50px;
+}
+
+/* Nombre de empresa */
+.company-name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* Mover logo y nombre  */
+.logo-link {
+  margin-left: 30px;
+}
+
+
+.logo-link:hover .company-name {
+  color: #E0EDF9;
+}
+
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.navbar .container,
+.navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+
+@media (min-width: 992px) {
+  .logo-link {
+    margin-left: 30px;
+  }
+}
+
+
+/* Top Bar */
+.top-bar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: var(--blue-light);
+  border-bottom: 1px solid #ccc;
+}
+
+.top-bar i {
+  font-size: 14px;
+}
+
+.top-bar small {
+  font-size: 14px;
+}
+
+.top-bar a {
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.top-bar a:hover {
+  color: var(--blue-dark);
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--blue-light) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  padding: 10px 15px;
+  transition: color 0.2s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--blue-dark);
+}
+
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+/* Botón Cotizar */
+.btn-primary {
+  background-color: var(--blue-dark);
+  border-color: var(--blue-dark);
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1f6090;
+  border-color: #1f6090;
+}
+
+/* Responsive ajustes */
+@media (max-width: 991.98px) {
+  .company-name {
+    font-size: 1.5rem;
+  }
+}
