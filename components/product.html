@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>STS Innova - Soluciones y Servicios Integrales</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="STS Innova" name="keywords">
+    <meta content="Soluciones y Servicios Integrales" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div id="header"></div> 
+
+    <!-- Catálogo de Productos Start -->
+    <div class="container-fluid py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-end mb-4">
+          <div class="col-lg-6">
+            <h6 class="text-secondary font-weight-semi-bold text-uppercase mb-3">Tienda</h6>
+            <h1 class="section-title mb-3">Nuestros Productos</h1>
+          </div>
+        </div>
+
+        <div class="row" id="product-list">
+          <!-- Producto -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="/img/tienda/papel.jpg" class="card-img-top rounded" alt="Producto">
+              <div class="card-body text-center">
+                <h5 class="card-title">Papel Ecológico</h5>
+                <p class="text-primary font-weight-bold">$8.000</p>
+                <button class="btn btn-primary add-to-cart" 
+                        data-id="1" data-name="Papel Ecológico" data-price="8000">
+                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="/img/tienda/cable.jpg" class="card-img-top rounded" alt="Producto">
+              <div class="card-body text-center">
+                <h5 class="card-title">Cable Centelsa 12</h5>
+                <p class="text-primary font-weight-bold">$12.000</p>
+                <button class="btn btn-primary add-to-cart" 
+                        data-id="2" data-name="Ambientador Natural" data-price="12000">
+                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="/img/tienda/planta.jpg" class="card-img-top rounded" alt="Producto">
+              <div class="card-body text-center">
+                <h5 class="card-title">Plantas Eléctricas</h5>
+                <p class="text-primary font-weight-bold">$18.000</p>
+                <button class="btn btn-primary add-to-cart" 
+                        data-id="3" data-name="Limpiador Multiusos" data-price="18000">
+                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+              <img src="/img/tienda/herrameinta.jpg" class="card-img-top rounded" alt="Producto">
+              <div class="card-body text-center">
+                <h5 class="card-title">Kit de Herrameintas</h5>
+                <p class="text-primary font-weight-bold">$15.000</p>
+                <button class="btn btn-primary add-to-cart" 
+                        data-id="4" data-name="Desinfectante Hogar" data-price="15000">
+                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Catálogo de Productos End -->
+
+    <!-- Carrito de Compras Start -->
+    <div class="container-fluid py-5">
+      <div class="container">
+        <h1 class="section-title mb-3">Carrito de Compras</h1>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-hover text-center shadow-sm rounded">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+              <tr><td colspan="5" class="text-muted">El carrito está vacío</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-right">
+          <h4 class="font-weight-bold">Total: <span id="cart-total">$0</span></h4>
+          <button id="checkout-btn" class="btn btn-primary mt-2">
+            <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Carrito de Compras End -->
+
+    <!-- Footer Start -->
+    <div id="footer"></div>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary px-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Cargar header y footer
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("header").innerHTML = data);
+
+      fetch("footer.html")
+        .then(response => response.text())
+        .then(data => document.getElementById("footer").innerHTML = data);
+
+      // ---------- LÓGICA DEL CARRITO ----------
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      const checkoutBtn = document.getElementById("checkout-btn");
+      let cart = [];
+
+      // Agregar producto al carrito
+      document.querySelectorAll(".add-to-cart").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const price = parseInt(btn.dataset.price);
+
+          const existing = cart.find(p => p.id === id);
+          if (existing) {
+            existing.qty++;
+          } else {
+            cart.push({ id, name, price, qty: 1 });
+          }
+          renderCart();
+        });
+      });
+
+      function renderCart() {
+        cartItems.innerHTML = "";
+        if (cart.length === 0) {
+          cartItems.innerHTML = `<tr><td colspan="5" class="text-muted">El carrito está vacío</td></tr>`;
+          cartTotal.textContent = "$0";
+          return;
+        }
+
+        let total = 0;
+        cart.forEach(item => {
+          const itemTotal = item.price * item.qty;
+          total += itemTotal;
+
+          cartItems.innerHTML += `
+            <tr>
+              <td>${item.name}</td>
+              <td>$${item.price.toLocaleString()}</td>
+              <td>
+                <input type="number" min="1" value="${item.qty}" 
+                  class="form-control qty-input" data-id="${item.id}">
+              </td>
+              <td>$${itemTotal.toLocaleString()}</td>
+              <td>
+                <button class="btn btn-danger btn-sm remove-btn" data-id="${item.id}">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+
+        cartTotal.textContent = `$${total.toLocaleString()}`;
+        addEvents();
+      }
+
+      function addEvents() {
+        // actualizar cantidades
+        document.querySelectorAll(".qty-input").forEach(input => {
+          input.addEventListener("change", e => {
+            const id = e.target.dataset.id;
+            const item = cart.find(p => p.id === id);
+            item.qty = parseInt(e.target.value) || 1;
+            renderCart();
+          });
+        });
+
+        // eliminar producto
+        document.querySelectorAll(".remove-btn").forEach(btn => {
+          btn.addEventListener("click", e => {
+            const id = e.target.dataset.id;
+            cart = cart.filter(p => p.id !== id);
+            renderCart();
+          });
+        });
+      }
+
+      // Enviar pedido por WhatsApp
+      checkoutBtn.addEventListener("click", () => {
+        if (cart.length === 0) {
+          alert("El carrito está vacío");
+          return;
+        }
+
+        let message = "🛒 *Pedido desde la tienda STS Innova*:\n\n";
+        let total = 0;
+        cart.forEach(item => {
+          message += `• ${item.name} x${item.qty} = $${(item.price * item.qty).toLocaleString()}\n`;
+          total += item.price * item.qty;
+        });
+        message += `\n*Total:* $${total.toLocaleString()}`;
+
+        const phone = "573112138549"; 
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
+      });
+    });
+    </script>
+</body>
+</html>

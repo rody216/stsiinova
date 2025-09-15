@@ -156,7 +156,7 @@ loadComponent('footer', 'footer.html');
 
 // Ejecutar y parar el video
 document.querySelector('.btn-play').addEventListener('click', function () {
-    const videoSrc = "https://www.youtube.com/embed/qmJoZeTnyQo";
+    const videoSrc = "https://youtube.com/shorts/d2S4W5m-mnk?feature=share";
     const modalBody = document.querySelector('#videoModal .modal-body iframe');
     modalBody.setAttribute('src', videoSrc);
 });
@@ -168,7 +168,7 @@ $('#videoModal').on('hidden.bs.modal', function () {
 
 // Al hacer clic en el botón de reproducir
 document.querySelector('.btn-play').addEventListener('click', function () {
-    const videoSrc = "https://www.youtube.com/embed/qmJoZeTnyQo?autoplay=1";
+    const videoSrc = "https://youtube.com/shorts/d2S4W5m-mnk?feature=share";
     const modalBody = document.querySelector('#videoIframe');
     modalBody.setAttribute('src', videoSrc);
 });
@@ -177,3 +177,108 @@ document.querySelector('.btn-play').addEventListener('click', function () {
 document.querySelector('#videoModal').addEventListener('hidden.bs.modal', function () {
     document.querySelector('#videoIframe').setAttribute('src', '');
 });
+
+// ---------- LÓGICA DEL CARRITO ----------
+document.addEventListener("DOMContentLoaded", function () {
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+  if (!cartItems || !cartTotal || !checkoutBtn) return; // seguridad por si no estamos en product.html
+
+  let cart = [];
+
+  // Agregar producto al carrito
+  document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      const name = btn.dataset.name;
+      const price = parseInt(btn.dataset.price);
+
+      const existing = cart.find(p => p.id === id);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ id, name, price, qty: 1 });
+      }
+      renderCart();
+    });
+  });
+
+  function renderCart() {
+    cartItems.innerHTML = "";
+    if (cart.length === 0) {
+      cartItems.innerHTML = `<tr><td colspan="5" class="text-muted">El carrito está vacío</td></tr>`;
+      cartTotal.textContent = "$0";
+      return;
+    }
+
+    let total = 0;
+    cart.forEach(item => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+
+      cartItems.innerHTML += `
+        <tr>
+          <td>${item.name}</td>
+          <td>$${item.price.toLocaleString()}</td>
+          <td>
+            <input type="number" min="1" value="${item.qty}" 
+              class="form-control qty-input" data-id="${item.id}">
+          </td>
+          <td>$${itemTotal.toLocaleString()}</td>
+          <td>
+            <button class="btn btn-danger btn-sm remove-btn" data-id="${item.id}">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      `;
+    });
+
+    cartTotal.textContent = `$${total.toLocaleString()}`;
+    addEvents();
+  }
+
+  function addEvents() {
+    // actualizar cantidades
+    document.querySelectorAll(".qty-input").forEach(input => {
+      input.addEventListener("change", e => {
+        const id = e.target.dataset.id;
+        const item = cart.find(p => p.id === id);
+        item.qty = parseInt(e.target.value) || 1;
+        renderCart();
+      });
+    });
+
+    // eliminar producto
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+      btn.addEventListener("click", e => {
+        const id = e.target.dataset.id;
+        cart = cart.filter(p => p.id !== id);
+        renderCart();
+      });
+    });
+  }
+
+  // Enviar pedido por WhatsApp
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("El carrito está vacío");
+      return;
+    }
+
+    let message = "🛒 *Pedido desde la tienda STS Innova*:\n\n";
+    let total = 0;
+    cart.forEach(item => {
+      message += `• ${item.name} x${item.qty} = $${(item.price * item.qty).toLocaleString()}\n`;
+      total += item.price * item.qty;
+    });
+    message += `\n*Total:* $${total.toLocaleString()}`;
+
+    const phone = "573001112233"; // 👉 cambia este número
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  });
+});
+

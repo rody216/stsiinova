@@ -674,6 +674,8 @@ pre code {
   max-width: 100%;
 }
 
+
+
 .row-cols-1 > * {
   flex: 0 0 100%;
   max-width: 100%;
@@ -10019,6 +10021,37 @@ h6,
   left: 0;
 }
 
+/* Efecto hover con colores originales y aumento del ícono */
+.team-social a {
+  transition: transform 0.3s ease; /* animación suave */
+}
+
+.team-social a i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.team-social a:hover .fa-twitter {
+  color: #1DA1F2; /* Azul Twitter */
+  transform: scale(1.8);
+}
+
+.team-social a:hover .fa-facebook-f {
+  color: #1877F2; /* Azul Facebook */
+  transform: scale(1.8);
+}
+
+.team-social a:hover .fa-linkedin-in {
+  color: #0A66C2; /* Azul LinkedIn */
+  transform: scale(1.8);
+}
+
+
+.team-social a:hover {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+
 .testimonial-carousel .owl-item img {
   width: 75px;
   height: 75px;
@@ -10059,3 +10092,19 @@ h6,
 }
 
 
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.table td, .table th {
+  vertical-align: middle;
+}
+
+.qty-input {
+  width: 70px;
+  text-align: center;
+}
