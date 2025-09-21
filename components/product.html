@@ -47,10 +47,10 @@
               <img src="/img/tienda/papel.jpg" class="card-img-top rounded" alt="Producto">
               <div class="card-body text-center">
                 <h5 class="card-title">Papel Ecológico</h5>
-                <p class="text-primary font-weight-bold">$8.000</p>
+                <!-- <p class="text-primary font-weight-bold">$8.000</p> -->
                 <button class="btn btn-primary add-to-cart" 
                         data-id="1" data-name="Papel Ecológico" data-price="8000">
-                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                  <i class="fa fa-cart-plus mr-2"></i>Cotizar
                 </button>
               </div>
             </div>
@@ -61,10 +61,10 @@
               <img src="/img/tienda/cable.jpg" class="card-img-top rounded" alt="Producto">
               <div class="card-body text-center">
                 <h5 class="card-title">Cable Centelsa 12</h5>
-                <p class="text-primary font-weight-bold">$12.000</p>
+                <!-- <p class="text-primary font-weight-bold">$12.000</p> -->
                 <button class="btn btn-primary add-to-cart" 
-                        data-id="2" data-name="Ambientador Natural" data-price="12000">
-                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                        data-id="2" data-name="Cable Eléctrico" data-price="12000">
+                  <i class="fa fa-cart-plus mr-2"></i>Cotizar
                 </button>
               </div>
             </div>
@@ -75,10 +75,10 @@
               <img src="/img/tienda/planta.jpg" class="card-img-top rounded" alt="Producto">
               <div class="card-body text-center">
                 <h5 class="card-title">Plantas Eléctricas</h5>
-                <p class="text-primary font-weight-bold">$18.000</p>
+                <!-- <p class="text-primary font-weight-bold">$18.000</p> -->
                 <button class="btn btn-primary add-to-cart" 
-                        data-id="3" data-name="Limpiador Multiusos" data-price="18000">
-                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                        data-id="3" data-name="Planta Eléctrica" data-price="18000">
+                  <i class="fa fa-cart-plus mr-2"></i>Cotizar
                 </button>
               </div>
             </div>
@@ -89,10 +89,10 @@
               <img src="/img/tienda/herrameinta.jpg" class="card-img-top rounded" alt="Producto">
               <div class="card-body text-center">
                 <h5 class="card-title">Kit de Herrameintas</h5>
-                <p class="text-primary font-weight-bold">$15.000</p>
+                <!-- <p class="text-primary font-weight-bold">$15.000</p> -->
                 <button class="btn btn-primary add-to-cart" 
-                        data-id="4" data-name="Desinfectante Hogar" data-price="15000">
-                  <i class="fa fa-cart-plus mr-2"></i>Añadir
+                        data-id="4" data-name="Kit de Herramientas" data-price="15000">
+                  <i class="fa fa-cart-plus mr-2"></i>Cotizar
                 </button>
               </div>
             </div>
@@ -102,7 +102,7 @@
     </div>
     <!-- Catálogo de Productos End -->
 
-    <!-- Carrito de Compras Start -->
+    <!-- Carrito de Compras Start
     <div class="container-fluid py-5">
       <div class="container">
         <h1 class="section-title mb-3">Carrito de Compras</h1>
@@ -122,17 +122,17 @@
               <tr><td colspan="5" class="text-muted">El carrito está vacío</td></tr>
             </tbody>
           </table>
-        </div>
+        </div> -->
 
-        <div class="text-right">
-          <h4 class="font-weight-bold">Total: <span id="cart-total">$0</span></h4>
+        <!-- <div class="text-right">-->
+          <!--<h4 class="font-weight-bold">Total: <span id="cart-total">$1</span></h4>
           <button id="checkout-btn" class="btn btn-primary mt-2">
             <i class="fab fa-whatsapp mr-2"></i>Comprar por WhatsApp
           </button>
-        </div>
+        </div> 
       </div>
     </div>
-    <!-- Carrito de Compras End -->
+    Carrito de Compras End -->
 
     <!-- Footer Start -->
     <div id="footer"></div>
@@ -158,115 +158,32 @@
     <script src="js/main.js"></script>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Cargar header y footer
-      fetch("header.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("header").innerHTML = data);
+document.addEventListener("DOMContentLoaded", function () {
+  // Cargar header y footer
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => document.getElementById("header").innerHTML = data);
 
-      fetch("footer.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
 
-      // ---------- LÓGICA DEL CARRITO ----------
-      const cartItems = document.getElementById("cart-items");
-      const cartTotal = document.getElementById("cart-total");
-      const checkoutBtn = document.getElementById("checkout-btn");
-      let cart = [];
+  // ---------- LÓGICA DE COTIZAR POR WHATSAPP ----------
+  const phone = "573112138549"; // Número de WhatsApp destino
 
-      // Agregar producto al carrito
-      document.querySelectorAll(".add-to-cart").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const id = btn.dataset.id;
-          const name = btn.dataset.name;
-          const price = parseInt(btn.dataset.price);
+  document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.name;
+      const price = parseInt(btn.dataset.price);
 
-          const existing = cart.find(p => p.id === id);
-          if (existing) {
-            existing.qty++;
-          } else {
-            cart.push({ id, name, price, qty: 1 });
-          }
-          renderCart();
-        });
-      });
-
-      function renderCart() {
-        cartItems.innerHTML = "";
-        if (cart.length === 0) {
-          cartItems.innerHTML = `<tr><td colspan="5" class="text-muted">El carrito está vacío</td></tr>`;
-          cartTotal.textContent = "$0";
-          return;
-        }
-
-        let total = 0;
-        cart.forEach(item => {
-          const itemTotal = item.price * item.qty;
-          total += itemTotal;
-
-          cartItems.innerHTML += `
-            <tr>
-              <td>${item.name}</td>
-              <td>$${item.price.toLocaleString()}</td>
-              <td>
-                <input type="number" min="1" value="${item.qty}" 
-                  class="form-control qty-input" data-id="${item.id}">
-              </td>
-              <td>$${itemTotal.toLocaleString()}</td>
-              <td>
-                <button class="btn btn-danger btn-sm remove-btn" data-id="${item.id}">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          `;
-        });
-
-        cartTotal.textContent = `$${total.toLocaleString()}`;
-        addEvents();
-      }
-
-      function addEvents() {
-        // actualizar cantidades
-        document.querySelectorAll(".qty-input").forEach(input => {
-          input.addEventListener("change", e => {
-            const id = e.target.dataset.id;
-            const item = cart.find(p => p.id === id);
-            item.qty = parseInt(e.target.value) || 1;
-            renderCart();
-          });
-        });
-
-        // eliminar producto
-        document.querySelectorAll(".remove-btn").forEach(btn => {
-          btn.addEventListener("click", e => {
-            const id = e.target.dataset.id;
-            cart = cart.filter(p => p.id !== id);
-            renderCart();
-          });
-        });
-      }
-
-      // Enviar pedido por WhatsApp
-      checkoutBtn.addEventListener("click", () => {
-        if (cart.length === 0) {
-          alert("El carrito está vacío");
-          return;
-        }
-
-        let message = "🛒 *Pedido desde la tienda STS Innova*:\n\n";
-        let total = 0;
-        cart.forEach(item => {
-          message += `• ${item.name} x${item.qty} = $${(item.price * item.qty).toLocaleString()}\n`;
-          total += item.price * item.qty;
-        });
-        message += `\n*Total:* $${total.toLocaleString()}`;
-
-        const phone = "573112138549"; 
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank");
-      });
+      let message = `📩 *Solicitud de cotización*\n\nProducto: ${name}\nPrecio estimado: $${price.toLocaleString()}\n\nPor favor enviarme más información.`;
+      
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
     });
-    </script>
+  });
+});
+</script>
+
 </body>
 </html>
