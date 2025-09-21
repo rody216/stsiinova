@@ -189,6 +189,51 @@
 
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
+
+   <!-- Script para cargar componentes (con reinyector CSS/JS) -->
+    <script>
+      function loadComponent(id, url) {
+        fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const container = document.getElementById(id);
+            container.innerHTML = html;
+
+            // Reinyectar <link rel="stylesheet">
+            container.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
+              const newLink = document.createElement("link");
+              newLink.rel = "stylesheet";
+              newLink.href = link.getAttribute("href");
+              document.head.appendChild(newLink);
+            });
+
+            // Reinyectar <style>
+            container.querySelectorAll("style").forEach(style => {
+              const newStyle = document.createElement("style");
+              newStyle.textContent = style.textContent;
+              document.head.appendChild(newStyle);
+            });
+
+            // Reinyectar <script>
+            container.querySelectorAll("script").forEach(script => {
+              const newScript = document.createElement("script");
+              if (script.src) {
+                newScript.src = script.src;
+              } else {
+                newScript.textContent = script.textContent;
+              }
+              document.body.appendChild(newScript);
+            });
+          })
+          .catch(err => console.error("Error cargando componente:", url, err));
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadComponent("header", "/components/header.html");
+        loadComponent("footer", "/components/footer.html");
+      });
+    </script>
+
 </body>
 
 </html>

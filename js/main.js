@@ -149,11 +149,6 @@ function loadComponent(id, url) {
         .catch(error => console.error('Error cargando componente:', error));
 }
 
-// Cargar el header y footer
-loadComponent('header', 'header.html');
-loadComponent('footer', 'footer.html');
-
-
 // Ejecutar y parar el video
 document.querySelector('.btn-play').addEventListener('click', function () {
     const videoSrc = "https://youtube.com/shorts/d2S4W5m-mnk?feature=share";

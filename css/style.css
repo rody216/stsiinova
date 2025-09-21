@@ -9905,9 +9905,15 @@ h6,
 }
 
 .bg-about {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/about.jpg), no-repeat center center;
-  background-size: cover;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../img/mision.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* 🔹 evita cortes */
 }
+
+
 
 .bg-service {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/carousel-1.jpg), no-repeat center center;
@@ -9958,6 +9964,8 @@ h6,
   opacity: 1;
 }
 
+
+
 .portfolio-item .portfolio-img {
   position: relative;
   width: 100%;
@@ -9991,10 +9999,18 @@ h6,
   top: 0;
 }
 
+/* Contenedor principal de cada tarjeta */
+.team {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Imagen */
 .team .team-img {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
   top: 0;
   left: 0;
   display: flex;
@@ -10007,6 +10023,7 @@ h6,
   left: 75px;
 }
 
+/* Redes sociales */
 .team .team-social {
   position: absolute;
   width: 75px;
@@ -10021,9 +10038,9 @@ h6,
   left: 0;
 }
 
-/* Efecto hover con colores originales y aumento del ícono */
+/* Hover con colores originales y aumento del ícono */
 .team-social a {
-  transition: transform 0.3s ease; /* animación suave */
+  transition: transform 0.3s ease;
 }
 
 .team-social a i {
@@ -10031,24 +10048,56 @@ h6,
 }
 
 .team-social a:hover .fa-twitter {
-  color: #1DA1F2; /* Azul Twitter */
+  color: #1DA1F2;
   transform: scale(1.8);
 }
 
 .team-social a:hover .fa-facebook-f {
-  color: #1877F2; /* Azul Facebook */
+  color: #1877F2;
   transform: scale(1.8);
 }
 
 .team-social a:hover .fa-linkedin-in {
-  color: #0A66C2; /* Azul LinkedIn */
+  color: #0A66C2;
   transform: scale(1.8);
 }
-
 
 .team-social a:hover {
   background-color: transparent !important;
   border: none !important;
+}
+
+/* 🔹 Bloque de texto */
+.team .d-flex.bg-primary {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* texto desde arriba */
+  align-items: center;
+  min-height: 280px; /* fuerza todas las tarjetas al mismo tamaño */
+  padding: 15px;
+  text-align: center;
+  height: 320px; /* ajusta este valor al tamaño del más largo */
+  overflow: hidden; /* evita que se salga el texto */
+}
+
+/* Nombre */
+.team .d-flex.bg-primary h5 {
+  margin-bottom: 5px;
+}
+
+/* Cargo → en negrita y separado */
+.team .d-flex.bg-primary p {
+  font-weight: bold;
+  margin-bottom: 10px; /* espacio con la descripción */
+}
+
+/* Descripción */
+.team .d-flex.bg-primary small {
+  display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: auto; /* empuja hacia abajo para igualar alturas */
 }
 
 
