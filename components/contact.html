@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Klean - Cleaning Services Website Template</title>
+    <title>STS Innova</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="STS Innova" name="keywords">
     <meta content="Soluciones y Servicios Integrales" name="description">
@@ -40,41 +40,44 @@
                     <h1 class="section-title mb-3">Contratar Nuestros Servicios</h1>
                 </div>
                 <div class="col-lg-6">
-                    <h4 class="font-weight-normal text-muted mb-3">En STS Innova, te ofrecemos una forma sencilla y rápida de contratar nuestros servicios de limpieza y desmanchado. Simplemente completa nuestro formulario en línea o contáctanos directamente a través de Whatsapp.</h4>
+                    <h4 class="font-weight-normal text-muted mb-3">En STS Innova, te ofrecemos una forma sencilla y rápida de contratar nuestros servicios. Simplemente completa nuestro formulario en línea o contáctanos directamente a través de Nuestros canales de contacto.</h4>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="contact-form">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="form-row">
-                                <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Su Nombre" required="required" data-validation-required-message="Please enter your name" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Su E-mail" required="required" data-validation-required-message="Please enter your email" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Asunto" required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="message" placeholder="Mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Enviar Mensaje</button>
-                            </div>
-                        </form>
-                    </div>
+    <div id="success"></div>
+    <!-- 🔹 Formulario actualizado -->
+    <form action="mail/sendmail.php" method="POST">
+        <div class="form-row">
+            <div class="col-sm-6 control-group">
+                <input type="text" class="form-control p-4" name="name" placeholder="Su Nombre" required />
+                <p class="help-block text-danger"></p>
+            </div>
+            <div class="col-sm-6 control-group">
+                <input type="email" class="form-control p-4" name="email" placeholder="Su E-mail" required />
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <input type="text" class="form-control p-4" name="subject" placeholder="Asunto" required />
+            <p class="help-block text-danger"></p>
+        </div>
+        <div class="control-group">
+            <textarea class="form-control p-4" rows="6" name="message" placeholder="Mensaje" required></textarea>
+            <p class="help-block text-danger"></p>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-block py-3 px-5" type="submit">Enviar Mensaje</button>
+        </div>
+    </form>
+    <!-- 🔹 Fin del formulario -->
+</div>
+
                 </div>
                 <div class="col-lg-5" style="min-height: 400px;">
                     <div class="position-relative h-100 rounded overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.2470925831985!2d-74.0650127247863!3d4.727089441427748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8517cce1894d%3A0xb23bc6fad54e7ee7!2sCl.%20138%20%2355-38%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1757976053549!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.18243554394!2d-74.07794432478624!3d4.7383430413296015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8502ed06f8cf%3A0x3dad74b4b8450afc!2sCl.%20146b%20Bis%20%2378-32%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1758447523369!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
