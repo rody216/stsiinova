@@ -265,7 +265,9 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
+-webkit-appearance: none; /* Safari/Chrome */
+-moz-appearance: none;    /* Firefox */
+appearance: none;         /* estándar */
 }
 
 button:not(:disabled),
@@ -330,7 +332,9 @@ progress {
 
 [type="search"] {
   outline-offset: -2px;
-  -webkit-appearance: none;
+  -webkit-appearance: none; /* Safari/Chrome */
+  -moz-appearance: none;    /* Firefox */
+  appearance: none;         /* estándar */
 }
 
 [type="search"]::-webkit-search-decoration {
@@ -3570,7 +3574,7 @@ input[type="button"].btn-block {
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5rem;
-  color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .custom-control-inline {
