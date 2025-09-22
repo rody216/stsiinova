@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Reply-To: {$email}\r\n";
 
     if (mail($to, $email_subject, $email_body, $headers)) {
-        header("Location: /gracias.html");
+        header("Location: /components/gracias.html");
         exit();
     } else {
         echo "Error al enviar el mensaje.";

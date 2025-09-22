@@ -18,6 +18,14 @@
         $(window).resize(toggleNavbarMethod);
     });
     
+
+  fetch("/components/header.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("header").innerHTML = html);
+
+fetch("/components/footer.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("footer").innerHTML = html);
     
     // Back to top button
     $(window).scroll(function () {
@@ -148,7 +156,6 @@ function loadComponent(id, url) {
         .then(data => document.getElementById(id).innerHTML = data)
         .catch(error => console.error('Error cargando componente:', error));
 }
-
 // Ejecutar y parar el video
 document.querySelector('.btn-play').addEventListener('click', function () {
     const videoSrc = "https://youtube.com/shorts/d2S4W5m-mnk?feature=share";
@@ -172,6 +179,7 @@ document.querySelector('.btn-play').addEventListener('click', function () {
 document.querySelector('#videoModal').addEventListener('hidden.bs.modal', function () {
     document.querySelector('#videoIframe').setAttribute('src', '');
 });
+
 
 // ---------- LÓGICA DEL CARRITO ----------
 document.addEventListener("DOMContentLoaded", function () {
@@ -271,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     message += `\n*Total:* $${total.toLocaleString()}`;
 
-    const phone = "573001112233"; // 👉 cambia este número
+    const phone = "57 3112138549"; 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   });
