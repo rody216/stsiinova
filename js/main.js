@@ -18,14 +18,14 @@
         $(window).resize(toggleNavbarMethod);
     });
     
+    // ✅ Cargar header y footer desde /components/
+    fetch("/components/header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header").innerHTML = html);
 
-  fetch("/components/header.html")
-  .then(res => res.text())
-  .then(html => document.getElementById("header").innerHTML = html);
-
-fetch("/components/footer.html")
-  .then(res => res.text())
-  .then(html => document.getElementById("footer").innerHTML = html);
+    fetch("/components/footer.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
     
     // Back to top button
     $(window).scroll(function () {
@@ -40,13 +40,11 @@ fetch("/components/footer.html")
         return false;
     });
 
-
     // Counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
-
 
     // Modal Video
     $(document).ready(function () {
@@ -65,7 +63,6 @@ fetch("/components/footer.html")
         })
     });
 
-
     // Service carousel
     $(".service-carousel").owlCarousel({
         autoplay: true,
@@ -79,21 +76,12 @@ fetch("/components/footer.html")
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ],
         responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:2
-            }
+            0:{ items:1 },
+            576:{ items:1 },
+            768:{ items:2 },
+            992:{ items:2 }
         }
     });
-
 
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
@@ -104,10 +92,8 @@ fetch("/components/footer.html")
     $('#portfolio-flters li').on('click', function () {
         $("#portfolio-flters li").removeClass('active');
         $(this).addClass('active');
-
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
-
 
     // Team carousel
     $(".team-carousel").owlCarousel({
@@ -122,21 +108,12 @@ fetch("/components/footer.html")
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ],
         responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
-            }
+            0:{ items:1 },
+            576:{ items:1 },
+            768:{ items:2 },
+            992:{ items:3 }
         }
     });
-
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
@@ -148,7 +125,6 @@ fetch("/components/footer.html")
     
 })(jQuery);
 
-
 // Función para cargar el HTML de un archivo en un elemento
 function loadComponent(id, url) {
     fetch(url)
@@ -156,9 +132,10 @@ function loadComponent(id, url) {
         .then(data => document.getElementById(id).innerHTML = data)
         .catch(error => console.error('Error cargando componente:', error));
 }
-// Ejecutar y parar el video
+
+// ✅ Bloque de video corregido para usar embed
 document.querySelector('.btn-play').addEventListener('click', function () {
-    const videoSrc = "https://youtube.com/shorts/d2S4W5m-mnk?feature=share";
+    const videoSrc = "https://www.youtube.com/embed/d2S4W5m-mnk";
     const modalBody = document.querySelector('#videoModal .modal-body iframe');
     modalBody.setAttribute('src', videoSrc);
 });
@@ -170,7 +147,7 @@ $('#videoModal').on('hidden.bs.modal', function () {
 
 // Al hacer clic en el botón de reproducir
 document.querySelector('.btn-play').addEventListener('click', function () {
-    const videoSrc = "https://youtube.com/shorts/d2S4W5m-mnk?feature=share";
+    const videoSrc = "https://www.youtube.com/embed/d2S4W5m-mnk";
     const modalBody = document.querySelector('#videoIframe');
     modalBody.setAttribute('src', videoSrc);
 });
@@ -179,7 +156,6 @@ document.querySelector('.btn-play').addEventListener('click', function () {
 document.querySelector('#videoModal').addEventListener('hidden.bs.modal', function () {
     document.querySelector('#videoIframe').setAttribute('src', '');
 });
-
 
 // ---------- LÓGICA DEL CARRITO ----------
 document.addEventListener("DOMContentLoaded", function () {
@@ -279,9 +255,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     message += `\n*Total:* $${total.toLocaleString()}`;
 
-    const phone = "57 3112138549"; 
+    const phone = "573112138549"; 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   });
 });
+
 
