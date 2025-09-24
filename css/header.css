@@ -97,13 +97,6 @@
   list-style: none;
 }
 
-/* Borde alrededor del header */
-.container-fluid.p-0 {
-  border: 4px solid var(--blue-dark);
-  border-radius: 5px;
-
-
-
   @media (min-width: 992px) {
     .logo-link {
       margin-left: 30px;
@@ -176,3 +169,8 @@
       font-size: 1.5rem;
     }
   }
+
+  .container-fluid.p-0 {
+  border: 4px solid var(--blue-dark) !important;
+  border-radius: 5px;
+}
